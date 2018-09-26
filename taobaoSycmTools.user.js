@@ -9,7 +9,7 @@
 // @match        *://sycm.taobao.com/*
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
 // @require      https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js
-// @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.js?_=1529206374043
+// @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.min.js?_=1529206374043
 // @resource     ui https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.css?_=1529206374043
 
 // @grant        GM_xmlhttpRequest
