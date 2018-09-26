@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         taobao sycm tools
-// @name:zh      淘宝生意参谋工具箱 chazz
-// @namespace    https://github.com/chazz1/taobaosycm
+// @name:zh      淘宝生意参谋工具箱 - chazz
+// @namespace    https://github.com/chazz1/taobaoSycmTools
 // @version      0.0.1
 // @description  生意参谋商品效果助手，一键计算收藏加购率，一键根据设置选择需要的数据
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
@@ -18,7 +18,7 @@
 
 (function () {
     'use strict';
-    var pathname = window.location.pathname;
+    var pathname = window.location.pathname; //获取地址
     console.log(pathname);
     if (pathname == "/bda/items/effect/item_effect.htm") {
         var btn1 = '<div class="ui-switch btn-group-switch"><ul class="ui-switch-menu"><li class="ui-switch-item ui-routable-item ch-btn hidden"><a href="JavaScript:;">计算收藏加购率</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;">看人气</a></li><li class="ui-switch-item ui-routable-item ch-btn3"><a href="JavaScript:;">看价值</a></li></ul></div>';
