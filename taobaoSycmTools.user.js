@@ -15,6 +15,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
+
 // @connect     s.taobao.com
 // ==/UserScript==
 
@@ -47,8 +48,8 @@
     }
     if (pathname == "/bda/items/itemanaly/item_analy.htm") {
         /*单品分析 */
-        var btn1 = '<li class="ui-switch-item ui-routable-item ch-btn"><a href="JavaScript:;">计算</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;" class="ch-copy-btn">拆分词根</a></li>';
-        $(".btn-group-switch .ui-switch-menu").append(btn1);
+        var btn2 = '<li class="ui-switch-item ui-routable-item ch-btn"><a href="JavaScript:;">计算</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;" class="ch-copy-btn">拆分词根</a></li>';
+        $(".btn-group-switch .ui-switch-menu").append(btn2);
         
         $("li.ch-btn").click(function () {
             $("span.ch-span").remove()
