@@ -19,14 +19,15 @@ function jsShangPin(){
         jg = Number(jg.replace(reg,""));
         sc = Number(sc.replace(reg,""));
         var js = (jg/fk)*100;
-        var t = '<span class="ch-span" style="color: #f00;font-size:6px;"><br>'+js.toFixed(1)+'%</span>';
+        var t = '<span class="ch-span"><br>'+js.toFixed(1)+'%</span>';
         jiagou.append(t);
         js = ((sc+jg)/fk)*100;
-        t = '<span class="ch-span" style="color: #f00;font-size:6px;"><br>'+js.toFixed(1)+'%</span>';
+        t = '<span class="ch-span"><br>'+js.toFixed(1)+'%</span>';
         fangke.append(t);
         js = (sc/fk)*100;
-        t = '<span class="ch-span" style="color: #f00;font-size:6px;"><br>'+js.toFixed(1)+'%</span>';
+        t = '<span class="ch-span"><br>'+js.toFixed(1)+'%</span>';
         shoucang.append(t);
+        GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
     });
 }
 
@@ -89,20 +90,23 @@ function jsDanPin(){
         var t = '<span class="ch-span">'+js.toFixed(1)+'%</span>';
         jiagou.append(t); 
         js = ((sc+jg)/fk)*100;  
-        t = '<span class="ch-span" style="color: #f00;font-size:6px;">'+js.toFixed(1)+'%</span>';
+        t = '<span class="ch-span"'+js.toFixed(1)+'%</span>';
         fangke.append(t); 
         js = (sc/fk)*100;  
-        t = '<span class="ch-span" style="color: #f00;font-size:6px;">'+js.toFixed(1)+'%</span>';
+        t = '<span class="ch-span">'+js.toFixed(1)+'%</span>';
         shoucang.append(t); 
         GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
     });
 }
 
 /**
+ * 拆分标题用来初始化商品ID
+ */
+var qnid = 0;
+/**
  * 拆分标题
  */
 function chaiFenBiaoTi(){
-    var qnid = 0;
     if(qnid==0){
         var qObj = $("a.item-title");
         var q = qObj.text()
@@ -166,7 +170,7 @@ function titleList(title){
         }
 
     });
-    console.log(s);
+    //console.log(s);
     return s;
 }
 
