@@ -10,9 +10,11 @@
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
 // @require      https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js
 // @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.js
+// @resource     ui https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.css
 
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
+// @grant        GM_getResourceText
 // @connect     s.taobao.com
 // ==/UserScript==
 
@@ -20,6 +22,8 @@
     'use strict';
     var pathname = window.location.pathname; //获取地址
     console.log(pathname);
+    var ui = GM_getResourceText('ui');
+    GM_addStyle(ui);
     if (pathname == "/bda/items/effect/item_effect.htm") {
         var btn1 = '<div class="ui-switch btn-group-switch"><ul class="ui-switch-menu"><li class="ui-switch-item ui-routable-item ch-btn hidden"><a href="JavaScript:;">计算收藏加购率</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;">看人气</a></li><li class="ui-switch-item ui-routable-item ch-btn3"><a href="JavaScript:;">看价值</a></li></ul></div>';
         $(".operation").prepend(btn1);

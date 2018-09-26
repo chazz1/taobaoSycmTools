@@ -27,7 +27,7 @@ function jsShangPin(){
         js = (sc/fk)*100;
         t = '<span class="ch-span"><br>'+js.toFixed(1)+'%</span>';
         shoucang.append(t);
-        GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
+        //GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
     });
 }
 
@@ -95,7 +95,7 @@ function jsDanPin(){
         js = (sc/fk)*100;  
         t = '<span class="ch-span">'+js.toFixed(1)+'%</span>';
         shoucang.append(t); 
-        GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
+      //  GM_addStyle('span.ch-span{color: #f00;font-size:6px;}');
     });
 }
 
@@ -136,7 +136,7 @@ function chaiFenBiaoTi(){
                     if(obj[i].nid == qnid){
                         //console.log(obj[i].title);
                         qObj.html(obj[i].title);
-                        GM_addStyle('.item-title .H{margin-right: 2px;background-color: #2162e6;color: white;}');
+                     //   GM_addStyle('.item-title .H{margin-right: 2px;background-color: #2162e6;color: white;}');
                     }
                 }
                 $("a.ch-copy-btn").text("复制词根").attr("data-clipboard-text",titleList(q));//提取词根，并把内容绑定到复制按钮上
