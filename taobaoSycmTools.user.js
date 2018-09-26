@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         taobao sycm tools
 // @name:zh      淘宝生意参谋工具箱 - chazz
+// @name         taobao sycm tools - chazz
 // @namespace    https://github.com/chazz1/taobaoSycmTools
 // @version      0.0.1
-// @description  生意参谋商品效果助手，一键计算收藏加购率，一键根据设置选择需要的数据
+// @description  淘宝生意参谋工具箱
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
 // @author       chazz <chazzcfb@163.com>
 // @match        *://sycm.taobao.com/*
