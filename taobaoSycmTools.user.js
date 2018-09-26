@@ -2,15 +2,15 @@
 // @name:zh      淘宝生意参谋工具箱 - chazz
 // @name         taobao sycm tools - chazz
 // @namespace    https://github.com/chazz1/taobaoSycmTools
-// @version      0.0.2
+// @version      0.0.3
 // @description  淘宝生意参谋工具箱
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
 // @author       chazz <chazzcfb@163.com>
 // @match        *://sycm.taobao.com/*
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
 // @require      https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js
-// @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.js?_=1529206374041
-// @resource     ui https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.css?_=1529206374040
+// @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.js?_=1529206374043
+// @resource     ui https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.css?_=1529206374043
 
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
