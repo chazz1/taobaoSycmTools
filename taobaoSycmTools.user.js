@@ -2,7 +2,7 @@
 // @name:zh      淘宝生意参谋工具箱 - chazz
 // @name         taobao sycm tools - chazz
 // @namespace    https://github.com/chazz1/taobaoSycmTools
-// @version      0.0.1
+// @version      0.0.2
 // @description  淘宝生意参谋工具箱
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
 // @author       chazz <chazzcfb@163.com>
