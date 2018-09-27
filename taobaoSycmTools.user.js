@@ -7,7 +7,7 @@
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
 // @author       chazz <chazzcfb@163.com>
 // @match        *://sycm.taobao.com/*
-// @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
+// @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
 // @require      https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js
 // @require      https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.min.js?_=1529206374043
 // @resource     ui https://raw.githubusercontent.com/chazz1/taobaoSycmTools/master/helper.css?_=1529206374043
@@ -48,8 +48,8 @@
     }
     if (pathname == "/bda/items/itemanaly/item_analy.htm") {
         /*单品分析 */
-        var btn2 = '<li class="ui-switch-item ui-routable-item ch-btn"><a href="JavaScript:;">计算</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;" class="ch-copy-btn">拆分词根</a></li>';
-        $(".btn-group-switch .ui-switch-menu").append(btn2);
+        var btn2 = '<li class="ui-switch-item ui-routable-item ch-btn3"><a href="JavaScript:;"  class="ch-copy-btn">复制数据</a></li><li class="ui-switch-item ui-routable-item ch-btn"><a href="JavaScript:;">计算</a></li><li class="ui-switch-item ui-routable-item ch-btn2"><a href="JavaScript:;" class="ch-copy-btn">拆分词根</a></li>';
+        $(".btn-group-switch .ui-switch-menu").prepend(btn2);
         
         $("li.ch-btn").click(function () {
             $("span.ch-span").remove()
@@ -58,9 +58,12 @@
         $("li.ch-btn2").click(function () {
             chaiFenBiaoTi();
         });
+        $("li.ch-btn3").click(function () {
+            tiquTop10();
+        });
+
+
+        copy(); //绑定复制按钮
     }
 
 })();
-
-
-
