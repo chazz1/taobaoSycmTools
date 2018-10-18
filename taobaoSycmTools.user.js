@@ -2,12 +2,12 @@
 // @name:zh      淘宝生意参谋工具箱 - chazz
 // @name         taobao sycm tools - chazz
 // @namespace    https://github.com/chazz1/taobaoSycmTools
-// @version      0.1.8
+// @version      0.1.1
 // @description  淘宝生意参谋工具箱
 // @icon          https://img.alicdn.com/tps/i1/TB1.OB5HpXXXXbyXpXXFArBHXXX-48-48.ico
 // @author       chazz <chazzcfb@163.com>
 // @match        *://sycm.taobao.com/*
-// @match        *://subway.simba.taobao.com*
+// @match        *://subway.simba.taobao.com/*
 
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
 // @require      https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js
