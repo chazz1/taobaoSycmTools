@@ -116,9 +116,9 @@ function chaiFenBiaoTi() {
         var nidHref = qObj.attr("href");
         //var reg = /(?<=id=)\d{10,12}/g;
         var reg = /([^id=]+)\d{10,12}/g;
-       // qnid = nidHref.match(/(?<=id=)\d{10,12}/g)[0];//根据商品链接提取商品ID
+        // qnid = nidHref.match(/(?<=id=)\d{10,12}/g)[0];//根据商品链接提取商品ID
         qnid = reg.exec(nidHref)[0];//根据商品链接提取商品ID
-       
+
         console.log(qnid);
         var url = "https://s.taobao.com/search?q=" + q + "&imgfile=&js=1&style=grid&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20170411&ie=utf8";
         // console.log(q);
@@ -129,11 +129,11 @@ function chaiFenBiaoTi() {
                 'User-agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
             },
             url: url,
-            onerror:function (e){
+            onerror: function (e) {
                 console.error(e);
                 toastMsg("数据获取出错！");
             },
-            ontimeout:function (e){
+            ontimeout: function (e) {
                 console.error(e);
                 toastMsg("数据获取超时！");
             },
@@ -159,7 +159,7 @@ function chaiFenBiaoTi() {
 
                 toastMsg("拆分完成！");
             }
-            
+
         });
     }
 }
@@ -169,7 +169,7 @@ function chaiFenBiaoTi() {
  * 提取单品分析top10的数据
  */
 function tiquTop10() {
-    var top10Date=""; //存储数据
+    var top10Date = ""; //存储数据
 
     var sourceNames = $("li.t-source-name ul.flow-source-table").children("ul").children("li");//获取来源列对象
     var flows = $("li.t-flow ul.flow-source-table").children("ul").children("li"); //获取流量相关列对象
@@ -178,10 +178,10 @@ function tiquTop10() {
         var i = $(this).index();
         var name = sourceNames.eq(i).text();
         var fangke = flows.eq(i).children("div").eq(0).text();
-        top10Date+=name+"\t"+fangke;
+        top10Date += name + "\t" + fangke;
         if (i < (sourceNames.length - 1)) {
-            top10Date+="\n";
-        }        
+            top10Date += "\n";
+        }
     });
     console.log(top10Date);
     $("li.ch-btn3 a.ch-copy-btn").attr("data-clipboard-text", top10Date);//提取词根，并把内容绑定到复制按钮上
@@ -251,4 +251,103 @@ function toastMsg(msg, duration) {
         m.style.opacity = '0';
         setTimeout(function () { document.body.removeChild(m) }, d * 1000);
     }, duration);
+}
+/**
+ * 提取
+ */
+var keyword = "0";
+/**
+ * 获取关键词
+ */
+function getRelatedWord() {
+    if (keyword == "0") {
+        keyword = $("input.ant-input").val();
+        if (keyword != "") {
+            var res = "";
+            var dataText = $("div.oui-date-picker-current-date").text();
+            var regText = /\d{4}-\d{2}-\d{2}/;
+            var arr = dataText.split("~");
+            var datas = regText.exec(arr[0]);
+            if (arr.length > 1) {
+                // datas += "%7C"+regText.exec(arr[1]);
+                toastMsg("目前仅支持按日提取数据，请不要选周，月，7天，30天！");
+            } else {
+                datas += "%7C" + regText.exec(arr[0]);
+                console.log(datas);
+
+                // keyword = encodeURI(encodeURI(keyword));//中文转为UTF-8
+                console.log(keyword);
+                var url = "https://sycm.taobao.com/mc/searchword/relatedWord.json?dateRange=" +
+                    datas
+                    + "&dateType=day&pageSize=10&page=1&order=desc&orderBy=seIpvUvHits&keyword=" +
+                    keyword
+                    + "&device=0&indexCode=seIpvUvHits%2CsePvIndex%2CclickRate%2CclickHits%2CclickHot";
+                console.log(url);
+
+                GM_xmlhttpRequest({
+                    method: "GET",
+                    headers: {
+
+                    },
+                    url: url,
+                    onerror: function (e) {
+                        console.error(e);
+                        toastMsg("数据获取出错！");
+                    },
+                    ontimeout: function (e) {
+                        console.error(e);
+                        toastMsg("数据获取超时！");
+                    },
+                    onload: function (response) {
+                        //加载成功处理数据
+                        var jsonText = response.responseText; //以文本获取html内容
+                        // var jsonText = htmlText; //截取json数据
+                        var obj = JSON.parse(jsonText); //json字符串反序列
+                        //obj = obj.mods.itemlist.data.auctions; //从json对象提取商品列表
+                        console.log(obj.data);
+                        var data = obj.data;
+                        for (var i in data) {
+                            // console.log(i + "-" + data[i].keyword);
+                            res += data[i].keyword + "\t" 
+                                + data[i].seIpvUvHits + "\t" 
+                                + data[i].sePvIndex + "\t" 
+                                + data[i].clickRate + "\t" 
+                                +data[i].clickHits + "\t"
+                                +data[i].clickHot + "\t"
+                                +data[i].tradeIndex + "\t"
+                                +data[i].payConvRate + "\t"
+                                +data[i].onlineGoodsCnt + "\t"
+                                +data[i].tmClickRatio + "\t"
+                                +data[i].p4pAmt + "\t"
+                                +data[i].spvRatio + "\t"
+                                ;
+                            res +="\n";
+                        }
+                        /*
+                        keyword: "西装套装女" 
+                        seIpvUvHits: 14408  搜索人气
+                        sePvIndex: 37804  搜索热度
+                        clickRate: 1.3357 点击率
+                        clickHits: 10978 点击人气
+                        clickHot: 44584 点击热度
+                        tradeIndex: 84585   交易指数
+                        payConvRate: 0.1404  支付转化率
+                        onlineGoodsCnt: 4988581   在线商品数
+                        tmClickRatio: 0.5594  商城点击占比
+                        p4pAmt: 2.0942555525089115   直通车参考价
+                        spvRatio: 13296    未知
+                        */
+
+                        $(".ch-copy-btn").text("复制数据").attr("data-clipboard-text", res);//提取词根，并把内容绑定到复制按钮上
+                        toastMsg("提取完成，请点击复制按钮复制数据！");
+                    }
+
+                });
+
+            }
+        }else{
+            toastMsg("先选择搜索词，进入搜索分析哦！");
+            keyword = "0";
+        }
+    }
 }
